@@ -1,8 +1,11 @@
 const bodyParser = require('body-parser')
+const pessoas = require('./pessoaroute')
+
 
 module.exports=app=>{
     app.use(bodyParser.json())
-    app.get('/pessoas',(req,res)=>{
-        res.send('ola')
+    app.use(pessoas)
+    app.get('/teste',(req,res)=>{
+        res.send({message:'ola'})
     })
 }
